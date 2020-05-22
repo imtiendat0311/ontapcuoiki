@@ -7,19 +7,39 @@ public class Ontap {
 
 
     public static void main(String[] args) {
-        int []a = {1,4,3,2,5,8,7,6,9,10,11};
-        int []b = {1,2,4,8,16};
-        System.out.println("cau 1 ket qua: "+sum(2,4));
-        System.out.println("cau 2 ket qua: "+multi(2,4));
-        System.out.println("cau 3 ket qua: "+isArithmeticSequence(a));
-        System.out.println("cau 4 ket qua: "+isGeometricSequence(b));
-        System.out.println("cau 5 ket qua: "+isPrime(13));
-        System.out.println("cau 6 ket qua: "+isPerfectNum(6));
-        System.out.println("cau 7 ket qua: "+gcd(6,4));
-        System.out.println("cau 8 ket qua: "+icm(4,6));
-        System.out.println("cau 9 ket qua: "+Arrays.toString(getMirror(a)));
-        speacialSort(a);
-    }
+        int n = 4, m = 6;
+		System.out.println("sum = "+sum(n,m));
+		System.out.println("multiple = "+multi(n, m));
+		int[] a = {1,2,3,4};
+		int[] b = {1, 1, 1, 1};
+		System.out.println("isArithmeticSequence a = "+isArithmeticSequence(a));
+		System.out.println("isArithmeticSequence b = "+isArithmeticSequence(b));
+		System.out.println("isGeometricSequence a = "+isGeometricSequence(a));
+		System.out.println("isGeometricSequence b  = "+isGeometricSequence(b));
+		
+		int p = 7, k = 28;
+		System.out.println("isPrime p = "+isPrime(p)+"; isPrime k = "+isPrime(k));
+		System.out.println("isPerfectNum p = "+isPerfectNum(p)+"; isPerfectNum k = "+isPerfectNum(k));
+		System.out.println("gcd (n, m) = "+ gcd(n, m));
+		System.out.println("lcm (n,m) = "+lcm(n, m));
+		
+		int[] mirror = getMirror(a);
+		if(mirror!=null)
+		{
+			System.out.println("a mirror:");
+			for(int i = 0 ; i < mirror.length ; i++)
+				System.out.print(mirror[i]+" ");
+		}//end if
+		else
+			System.out.println("null mirror");
+		
+		System.out.println();
+		speacialSort(a);
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a[i]+" ");
+        }//end else
+    }//end main method
+    
     //cau 1
     public static int sum(int n, int m){
     int sum=0;
@@ -124,76 +144,65 @@ public class Ontap {
     
     //cau 10
     public static void speacialSort(int[] a){
-    System.out.println("cau 10 ket qua:");
     int goEven =0;
     int goOdd = 0;
     int length =a.length;
     int lengthEven=0, lengthOdd=0;
-    System.out.println("data have "+length+" number");
     for(int i=0;i<length;i++){
-    if(a[i]%2==0){
-    lengthEven++;
-    }//end if count even
-    else{
-    lengthOdd++;
-    }//end else count odd
+        if(a[i]%2==0){
+            lengthEven++;
+         }//end if count even
+        else{
+            lengthOdd++;
+         }//end else count odd
     }//end for loop count even and odd
-    System.out.println("we have :"+lengthEven+" even number and "+lengthOdd+" odd number");
-    System.out.println("Now create two array to store odd and even number sep");
     int[] even = new int[lengthEven];
     int[] odd  = new int[lengthOdd];
     for(int i=0;i<length;i++){
-    if(a[i]%2==0){
-    int temp=0;
-    temp=a[i];
-    even[goEven]=temp;
-    goEven++;
-    }//end if add even
-    else{
-    int temp=0;
-    temp=a[i];
-    odd[goOdd]=temp;
-    goOdd++;
-    }//end else add odd
+        if(a[i]%2==0){
+            int temp=0;
+            temp=a[i];
+            even[goEven]=temp;
+            goEven++;
+        }//end if add even
+        else{
+            int temp=0;
+            temp=a[i];
+            odd[goOdd]=temp;
+            goOdd++;
+        }//end else add odd
     }//end for loop add to two array
-    System.out.println("this is even array"+Arrays.toString(even));
-    System.out.println("this is odd array"+Arrays.toString(odd));
-    System.out.println("\nSorting");
     for(int i=0; i<lengthEven-1;i++){
-    if(even[i]>even[i+1]){
-    int temp ;
-    temp = even[i];
-    even[i]=even[i+1];
-    even[i+1]=temp;
-    }//end if 
+        if(even[i]>even[i+1]){
+            int temp ;
+            temp = even[i];
+            even[i]=even[i+1];
+            even[i+1]=temp;
+        }//end if 
     }//end for sort even
-    System.out.println("this is odd array"+Arrays.toString(even));
     for(int i=0; i<lengthOdd-1;i++){
-    if(odd[i]>odd[i+1]){
-    int temp ;
-    temp = odd[i];
-    odd[i]=odd[i+1];
-    odd[i+1]=temp;
-    }//end if 
+        if(odd[i]>odd[i+1]){
+            int temp ;
+            temp = odd[i];
+            odd[i]=odd[i+1];
+            odd[i+1]=temp;
+        }//end if 
     }//end for sort odd
-    System.out.println("this is odd array"+Arrays.toString(odd));
-    System.out.println("Start adding to the main array");
     int goUp=0;
     for(int i=0;i<length;i++){
-    int temp;
-    while(i<lengthEven){
-    temp = even[i];
-    a[i]=temp;
-    i++;
-    }
-    while(i>=lengthEven && i<length ){
-    temp = odd[goUp];
-    a[i]= temp;
-    i++;
-    goUp++;
-    }
+        int temp;
+        while(i<lengthEven){
+            temp = even[i];
+            a[i]=temp;
+            i++;
+        }
+        while(i>=lengthEven && i<length ){
+            temp = odd[goUp];
+            a[i]= temp;
+            i++;
+            goUp++;
+        }
     }//loop add to main array
-    System.out.println("this is main array"+Arrays.toString(a));
     }//end of speacialSort
     
 }//end class
