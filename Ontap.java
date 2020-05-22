@@ -186,7 +186,7 @@ public class Ontap {
     a[i]=temp;
     i++;
     }
-    while(i>lengthEven && i<length ){
+    while(i>=lengthEven && i<length ){
     temp = odd[goUp];
     a[i]= temp;
     i++;
