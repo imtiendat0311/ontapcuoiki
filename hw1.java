@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class hw1{
 
     public static void main(String[] args) {
-int n ;
+        int n ;
 String temp;
 Scanner s = new Scanner(System.in);
 n=s.nextInt();
@@ -26,6 +26,5 @@ for(int i =0; i<n-1;i++){
     System.out.println(names[i]);
 }
 System.out.println(names[n-1]);
-}
-
+    }
 }
