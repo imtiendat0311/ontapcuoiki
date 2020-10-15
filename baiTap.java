@@ -406,6 +406,27 @@ public class baiTap {
             }
         }
     }
+    //bai24  da tung lam
+    public static void tinhtong(){
+        Scanner input = new Scanner(System.in);
+        int n =input.nextInt();
+        long sum=0;
+        System.out.print("1 : ");
+        for(int i=1;i<=n;i++){
+            sum=sum+(1/i);
+        }
+        System.out.println(sum);
+        System.out.print("2 : ");
+        sum=0;
+        for(int i=1;i<=n;i++){
+            sum=sum+(1/(i*(i+1)));
+        }
+        System.out.println(sum);
+        //tinh e Xem file exp.java
+        //tinh cos sin xem file bai1de1.java
+        //doi x ra radian
+        double convert=n*(Math.PI/180);
+    }
     //bai25
     public static void tinhoddeven(){
         Scanner input= new Scanner(System.in);
@@ -427,8 +448,8 @@ public class baiTap {
             System.out.println(multi);
         }
     }
-    //bai24  da tung lam
-    
+
+
     //bai26
     public static void daysoFib() {
         Scanner input = new Scanner(System.in);
